@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+models/
+bert_model_tersimpan/
+data/
+*.csv
