@@ -17,15 +17,9 @@ MODELS_DIR = os.path.join(BASE_DIR, 'models')
 BERT_DIR = os.path.join(BASE_DIR, 'bert_model_tersimpan')
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 
-# --- Unduh resource NLTK (hanya sekali) ---
-@st.cache_resource
-def download_nltk_resources():
-    try:
-        nltk.data.find('corpora/stopwords')
-    except nltk.downloader.DownloadError:
-        nltk.download('stopwords')
-
-download_nltk_resources()
+# --- di dalam fungsi load_all_resources() ---
+indo_stopwords = set(stopwords.words('indonesian'))
+# ---
 
 # --- Load Semua Model dan Objek yang Dibutuhkan ---
 @st.cache_resource
