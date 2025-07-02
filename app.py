@@ -17,10 +17,6 @@ MODELS_DIR = os.path.join(BASE_DIR, 'models')
 BERT_DIR = os.path.join(BASE_DIR, 'bert_model_tersimpan')
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 
-# --- di dalam fungsi load_all_resources() ---
-indo_stopwords = set(stopwords.words('indonesian'))
-# ---
-
 # --- Load Semua Model dan Objek yang Dibutuhkan ---
 @st.cache_resource
 def load_models_and_data():
@@ -37,6 +33,9 @@ def load_models_and_data():
         'SVM': svm_model,
         'KNN': knn_model
     }
+    # --- di dalam fungsi load_all_resources() ---
+    indo_stopwords = set(stopwords.words('indonesian'))
+    # ---
 
     # Load tokenizer dan model IndoBERT
     tokenizer = BertTokenizer.from_pretrained(os.path.join(BERT_DIR, 'tokenizer'))
